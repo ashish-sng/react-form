@@ -1,0 +1,17 @@
+.formbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 30rem;
+  border-radius: 10px;
+  background-color: red;
+  border-bottom: 1px solid #e6e6e6;
+  box-shadow: 4px 4px 10px black;
+}
+
+#bold{
+    font-weight: bold;
+}
+
+

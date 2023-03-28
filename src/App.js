@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import Form from "./components/Form";
+import FormBar from "./components/FormBar";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <div className="left">
+        <h1>
+          Learn to code by <br /> watching others.
+        </h1>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          See how experienced developers solve problems in real time. <br />
+          Watching scripted tutorials ig great, but understanding how <br />
+          developers think is invaluable.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </div>
+      <div className="right">
+        <FormBar />
+        <Form />
+      </div>
     </div>
   );
 }

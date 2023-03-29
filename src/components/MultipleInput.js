@@ -4,16 +4,16 @@ import FormBar from "./FormBar";
 import cross from "../icon/cross.png";
 
 function MultipleInput() {
-  const options = ["JS", "HTML", "CSS", "ReactJS", "NodeJS", "Python"];
+  const [options,setOptions] = useState(["JS", "HTML", "CSS", "ReactJS", "NodeJS", "Python"]);
 
   const [skills, setSkills] = useState([]);                   // Selected skills
   const [userDetails, setUserDetails] = useState({
     name: "",
     email: "",
     password: "",
-  });                                                   // Form input values
-  const [showButton, setShowButton] = useState(false); // Claim your trial button
-  const [subscribe, setSubscribe] = useState(false);  // Form bar Text Description
+  });                                                         // Form input values
+  const [showButton, setShowButton] = useState(false);        // Claim your trial button
+  const [subscribe, setSubscribe] = useState(false);          // Form bar Text Description
 
   useEffect(() => {
     if (
@@ -31,12 +31,8 @@ function MultipleInput() {
   const handleInput = (e) => {
     if (e.target.name === "selected") {
       const selected = e.target.value;
-      if (skills.includes(selected)) {
-        setSkills(skills.filter((skill) => skill !== selected));
-      } else {
-        setSkills([...skills, selected]);
-      }
-      setUserDetails({ ...userDetails, selected: skills });
+      setOptions(options.filter((option) => option !== selected));
+      setSkills([...skills, selected]);
     } else {
       setUserDetails({ ...userDetails, [e.target.name]: e.target.value });
     }
@@ -59,7 +55,7 @@ function MultipleInput() {
   const filterSkill = (e) => {
     const skillChosen = e.target.parentElement.innerText;
     setSkills(skills.filter((skill) => skill !== skillChosen));
-
+    setOptions([...options, skillChosen]);
   }
 
   return (
@@ -109,13 +105,13 @@ function MultipleInput() {
           </div>
           <div>
             <select
-              defaultValue={"default"}
+              value="default"
               required
               name="selected"
               onChange={handleInput}
             >
               <option value="default" disabled hidden>
-                Choose a Skill
+                Choose Your Skill
               </option>
               {options.map((option, index) => {
                 return <option key={index}>{option}</option>;
@@ -139,7 +135,7 @@ function MultipleInput() {
           </div>
           <div>
             <button
-              className={showButton ? "button" : "disable"} 
+              className={showButton ? "button" : "disable"}
               disabled={!showButton}
               type="submit"
               onClick={setSub}

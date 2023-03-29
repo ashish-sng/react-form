@@ -6,14 +6,14 @@ import cross from "../icon/cross.png";
 function MultipleInput() {
   const options = ["JS", "HTML", "CSS", "ReactJS", "NodeJS", "Python"];
 
-  const [skills, setSkills] = useState([]);
+  const [skills, setSkills] = useState([]);                   // Selected skills
   const [userDetails, setUserDetails] = useState({
     name: "",
     email: "",
     password: "",
-  });
-  const [showDiv, setShowDiv] = useState(false);
-  const [subscribe, setSubscribe] = useState(false);
+  });                                                   // Form input values
+  const [showButton, setShowButton] = useState(false); // Claim your trial button
+  const [subscribe, setSubscribe] = useState(false);  // Form bar Text Description
 
   useEffect(() => {
     if (
@@ -26,7 +26,6 @@ function MultipleInput() {
     } else {
       isFormValid(false);
     }
-    console.log("here");
   }, [userDetails,skills]);
 
   const handleInput = (e) => {
@@ -50,7 +49,7 @@ function MultipleInput() {
   };
 
   const isFormValid = (flag) => {
-    setShowDiv(flag);
+    setShowButton(flag);
   };
 
   const setSub = () => {
@@ -58,10 +57,9 @@ function MultipleInput() {
   }
   
   const filterSkill = (e) => {
-    console.log(e.target.parentElement.innerText);
     const skillChosen = e.target.parentElement.innerText;
     setSkills(skills.filter((skill) => skill !== skillChosen));
-    console.log(skills);
+
   }
 
   return (
@@ -141,7 +139,8 @@ function MultipleInput() {
           </div>
           <div>
             <button
-              className={showDiv ? "button" : "disable"}
+              className={showButton ? "button" : "disable"} 
+              disabled={!showButton}
               type="submit"
               onClick={setSub}
             >

@@ -34,7 +34,7 @@ function MultipleInput() {
       setOptions(options.filter((option) => option !== selected));
       setSkills([...skills, selected]);
     } else {
-      setUserDetails({ ...userDetails, [e.target.name]: e.target.value });
+      setUserDetails({ ...userDetails, [e.target.name]: e.target.value.trim() });
     }
   };
 

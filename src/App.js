@@ -1,6 +1,5 @@
 import './App.css';
 import Form from "./components/Form";
-import FormBar from "./components/FormBar";
 
 function App() {
   return (
@@ -16,7 +15,6 @@ function App() {
         </p>
       </div>
       <div className="right">
-        <FormBar />
         <Form />
       </div>
     </div>

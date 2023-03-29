@@ -14,4 +14,17 @@
     font-weight: bold;
 }
 
+.subscribeText{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  height: 3rem;
+  width: 30rem;
+  border-radius: 10px;
+  background-color: red;
+  border-bottom: 1px solid #e6e6e6;
+  box-shadow: 4px 4px 10px black;
+}
+
 
